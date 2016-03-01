@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  FirstViewController.swift
 //  UIActivityWebView / Demo
 //
 //  Created by Krachulov Artem
@@ -8,4 +8,4 @@
 
 import UIKit
 
-class SecondViewController: ViewController {}
+class FirstViewController: ViewController {}

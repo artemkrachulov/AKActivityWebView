@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ete-zy-AKH">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--UIActivityWebView-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrq-MO-LQr">
+                                <rect key="frame" x="185" y="473" width="231" height="30"/>
+                                <state key="normal" title="Single UIWebView (no autolayout)"/>
+                                <connections>
+                                    <segue destination="kX0-eF-Sxe" kind="show" id="URu-Z4-Zc2"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UIView object with UIWebView and UIActivityIndicatorView" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcW-gv-GXn">
+                                <rect key="frame" x="20" y="96" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artem Krachulov" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LlC-K5-uLf">
+                                <rect key="frame" x="20" y="563" width="560" height="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Demos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4k3-DC-1LH">
+                                <rect key="frame" x="20" y="214" width="560" height="26"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aH8-Zr-SHj">
+                                <rect key="frame" x="180" y="248" width="240" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="8wh-FB-5mg"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2OX-Gu-dvX">
+                                <rect key="frame" x="223" y="281" width="154" height="30"/>
+                                <state key="normal" title="Embed in UIScrollView"/>
+                                <connections>
+                                    <segue destination="cJp-dY-32L" kind="show" id="OEg-Cq-z1W"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kwj-PD-WOP">
+                                <rect key="frame" x="226" y="411" width="148" height="30"/>
+                                <state key="normal" title="Multiple UIWebView's"/>
+                                <connections>
+                                    <segue destination="ZWq-83-yGK" kind="show" id="xdc-tS-gaL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SwZ-Wc-h5e">
+                                <rect key="frame" x="238" y="343" width="124" height="30"/>
+                                <state key="normal" title="Single UIWebView"/>
+                                <connections>
+                                    <segue destination="zOf-x0-pZ8" kind="show" id="Y0a-2a-iGZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="LlC-K5-uLf" secondAttribute="leading" id="1bU-Mj-DL7"/>
+                            <constraint firstItem="2OX-Gu-dvX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="38V-EA-0un"/>
+                            <constraint firstItem="mcW-gv-GXn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="6On-Rf-WfN"/>
+                            <constraint firstItem="4k3-DC-1LH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7qV-TR-g3H"/>
+                            <constraint firstItem="qrq-MO-LQr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7vE-Pz-Z6l"/>
+                            <constraint firstItem="qrq-MO-LQr" firstAttribute="top" secondItem="Kwj-PD-WOP" secondAttribute="bottom" constant="32" id="Aj3-Qm-ej6"/>
+                            <constraint firstItem="4k3-DC-1LH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="ELl-Ke-Aj5"/>
+                            <constraint firstItem="Kwj-PD-WOP" firstAttribute="top" secondItem="SwZ-Wc-h5e" secondAttribute="bottom" constant="38" id="JWx-ba-wn1"/>
+                            <constraint firstItem="2OX-Gu-dvX" firstAttribute="top" secondItem="aH8-Zr-SHj" secondAttribute="bottom" constant="32" id="Oeu-ly-HL7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4k3-DC-1LH" secondAttribute="trailing" id="RCs-pU-SoB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LlC-K5-uLf" secondAttribute="bottom" constant="20" id="T04-47-4YX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LlC-K5-uLf" secondAttribute="trailing" id="Vwz-u8-OP3"/>
+                            <constraint firstItem="SwZ-Wc-h5e" firstAttribute="top" secondItem="2OX-Gu-dvX" secondAttribute="bottom" constant="32" id="eBX-A6-ZC6"/>
+                            <constraint firstItem="aH8-Zr-SHj" firstAttribute="top" secondItem="4k3-DC-1LH" secondAttribute="bottom" constant="8" id="eqA-x6-3uQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aH8-Zr-SHj" secondAttribute="trailing" constant="160" id="gtj-tk-8Sr"/>
+                            <constraint firstItem="mcW-gv-GXn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="32" id="oNN-Pq-8Pb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mcW-gv-GXn" secondAttribute="trailing" id="rN2-75-NRH"/>
+                            <constraint firstItem="Kwj-PD-WOP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vOx-ZO-1EB"/>
+                            <constraint firstItem="aH8-Zr-SHj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="160" id="w1F-8Q-ijM"/>
+                            <constraint firstItem="SwZ-Wc-h5e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="y1H-VX-VoQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="UIActivityWebView" id="lAm-fL-t1L"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="927" y="1196"/>
+        </scene>
+        <!--Single UIWebView (no autolayout)-->
+        <scene sceneID="lRy-wh-m48">
+            <objects>
+                <viewController id="kX0-eF-Sxe" customClass="FourthViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oNG-4E-kaD"/>
+                        <viewControllerLayoutGuide type="bottom" id="qcT-0U-Jie"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pse-zc-64n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fgb-N7-T2m" customClass="UIActivityWebView" customModule="Demo" customModuleProvider="target">
+                                <rect key="frame" x="20" y="72" width="335" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Single UIWebView (no autolayout)" id="Iwc-Cj-crO">
+                        <barButtonItem key="rightBarButtonItem" title="Switch Text" id="afa-8G-8ES">
+                            <connections>
+                                <action selector="switchAction:" destination="kX0-eF-Sxe" id="i39-Hu-nwr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="switchButton" destination="afa-8G-8ES" id="byw-tE-sIO"/>
+                        <outlet property="webView1" destination="fgb-N7-T2m" id="JHh-SI-ZoG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bSd-eN-FBT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1682.5" y="2740.5"/>
+        </scene>
+        <!--Single UIWebView-->
+        <scene sceneID="JcX-5k-aZP">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="zOf-x0-pZ8" customClass="SecondViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bp7-oC-l9o"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZX0-1N-zbl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZqM-hi-OMC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0v-KL-3WN" customClass="UIActivityWebView" customModule="Demo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZX0-1N-zbl" firstAttribute="top" secondItem="R0v-KL-3WN" secondAttribute="bottom" id="C2B-cH-UHQ"/>
+                            <constraint firstItem="R0v-KL-3WN" firstAttribute="leading" secondItem="ZqM-hi-OMC" secondAttribute="leading" id="N20-ni-Baq"/>
+                            <constraint firstItem="R0v-KL-3WN" firstAttribute="top" secondItem="bp7-oC-l9o" secondAttribute="bottom" id="cIn-VD-vRA"/>
+                            <constraint firstAttribute="trailing" secondItem="R0v-KL-3WN" secondAttribute="trailing" id="npT-92-S1u"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Single UIWebView" id="yl9-6G-xEq">
+                        <barButtonItem key="rightBarButtonItem" title="Switch Text" id="7PF-cn-Wg4">
+                            <connections>
+                                <action selector="switchAction:" destination="zOf-x0-pZ8" id="oHC-nd-LjV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="switchButton" destination="7PF-cn-Wg4" id="vwi-c0-IGc"/>
+                        <outlet property="webView1" destination="R0v-KL-3WN" id="6qb-mf-TDP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6P4-ev-TFA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1683" y="1976"/>
+        </scene>
+        <!--Multiple UIWebView's-->
+        <scene sceneID="N1c-D0-f8b">
+            <objects>
+                <viewController id="ZWq-83-yGK" customClass="ThirdViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GAb-pm-vIB"/>
+                        <viewControllerLayoutGuide type="bottom" id="1fQ-bJ-jnM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w5E-qf-1Vz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cng-di-oun" customClass="UIActivityWebView" customModule="Demo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="179"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opA-7w-Wlt" customClass="UIActivityWebView" customModule="Demo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="421" width="600" height="179"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u1R-TN-chu" customClass="UIActivityWebView" customModule="Demo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="243" width="600" height="178"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1fQ-bJ-jnM" firstAttribute="top" secondItem="opA-7w-Wlt" secondAttribute="bottom" id="8h1-Pa-cnp"/>
+                            <constraint firstAttribute="trailing" secondItem="opA-7w-Wlt" secondAttribute="trailing" id="9Ot-j6-tDi"/>
+                            <constraint firstAttribute="trailing" secondItem="Cng-di-oun" secondAttribute="trailing" id="FBr-rz-TQ3"/>
+                            <constraint firstItem="u1R-TN-chu" firstAttribute="height" secondItem="Cng-di-oun" secondAttribute="height" id="JOz-xK-wGP"/>
+                            <constraint firstItem="opA-7w-Wlt" firstAttribute="height" secondItem="u1R-TN-chu" secondAttribute="height" id="Kvd-Tk-F9F"/>
+                            <constraint firstItem="Cng-di-oun" firstAttribute="leading" secondItem="w5E-qf-1Vz" secondAttribute="leading" id="Njd-py-C0j"/>
+                            <constraint firstItem="Cng-di-oun" firstAttribute="top" secondItem="GAb-pm-vIB" secondAttribute="bottom" id="ToT-ik-hcI"/>
+                            <constraint firstItem="opA-7w-Wlt" firstAttribute="top" secondItem="u1R-TN-chu" secondAttribute="bottom" id="ZyX-93-EOj"/>
+                            <constraint firstItem="opA-7w-Wlt" firstAttribute="leading" secondItem="w5E-qf-1Vz" secondAttribute="leading" id="qdO-c3-sh9"/>
+                            <constraint firstItem="u1R-TN-chu" firstAttribute="top" secondItem="Cng-di-oun" secondAttribute="bottom" id="sP1-7k-fth"/>
+                            <constraint firstAttribute="trailing" secondItem="u1R-TN-chu" secondAttribute="trailing" id="syg-85-S6o"/>
+                            <constraint firstItem="u1R-TN-chu" firstAttribute="leading" secondItem="w5E-qf-1Vz" secondAttribute="leading" id="yP0-Tb-P7c"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Multiple UIWebView's" id="GRf-Ou-FLX">
+                        <barButtonItem key="rightBarButtonItem" title="Switch Text" id="8aY-Za-Pg2">
+                            <connections>
+                                <action selector="switchAction:" destination="ZWq-83-yGK" id="1cT-0p-2rk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="switchButton" destination="8aY-Za-Pg2" id="rzK-rc-c0l"/>
+                        <outlet property="webView1" destination="Cng-di-oun" id="zAJ-bc-OK4"/>
+                        <outlet property="webView2" destination="u1R-TN-chu" id="pQq-97-EjS"/>
+                        <outlet property="webView3" destination="opA-7w-Wlt" id="9ZK-lP-CxX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ob-c0-Xh1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2473" y="1976"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ljn-B2-L7d">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ete-zy-AKH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SXN-er-Da6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9Ms-Mw-Yms"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iQe-wg-JtJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="169" y="1196"/>
+        </scene>
+        <!--Embed in UIScrollView-->
+        <scene sceneID="mEp-Z4-Ry8">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="cJp-dY-32L" customClass="FirstViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2si-dH-DJ0"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Nr-J1-V6F"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pVl-CV-sYp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N2h-Ay-W6y">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8f-xd-uTf">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNf-gi-W9I" customClass="UIActivityWebView" customModule="Demo" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="A18-jF-0gl"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="MNf-gi-W9I" secondAttribute="trailing" id="7hD-EJ-QAK"/>
+                                            <constraint firstItem="MNf-gi-W9I" firstAttribute="top" secondItem="W8f-xd-uTf" secondAttribute="top" id="7lk-rF-Ind"/>
+                                            <constraint firstAttribute="bottom" secondItem="MNf-gi-W9I" secondAttribute="bottom" id="N1a-ks-MlG"/>
+                                            <constraint firstItem="MNf-gi-W9I" firstAttribute="leading" secondItem="W8f-xd-uTf" secondAttribute="leading" id="w3c-JG-IIk"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="W8f-xd-uTf" firstAttribute="height" secondItem="N2h-Ay-W6y" secondAttribute="height" priority="250" id="Php-7u-7M9"/>
+                                    <constraint firstAttribute="trailing" secondItem="W8f-xd-uTf" secondAttribute="trailing" id="TUF-2Q-mhg"/>
+                                    <constraint firstItem="W8f-xd-uTf" firstAttribute="leading" secondItem="N2h-Ay-W6y" secondAttribute="leading" id="fkN-mU-EWK"/>
+                                    <constraint firstItem="W8f-xd-uTf" firstAttribute="width" secondItem="N2h-Ay-W6y" secondAttribute="width" id="k4g-Oe-BGY"/>
+                                    <constraint firstItem="W8f-xd-uTf" firstAttribute="top" secondItem="N2h-Ay-W6y" secondAttribute="top" id="kna-7j-9nF"/>
+                                    <constraint firstAttribute="bottom" secondItem="W8f-xd-uTf" secondAttribute="bottom" id="zuw-OA-PUp"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8Nr-J1-V6F" firstAttribute="top" secondItem="N2h-Ay-W6y" secondAttribute="bottom" id="6jY-85-RK5"/>
+                            <constraint firstAttribute="trailing" secondItem="N2h-Ay-W6y" secondAttribute="trailing" id="9Zb-8S-Hk7"/>
+                            <constraint firstItem="N2h-Ay-W6y" firstAttribute="leading" secondItem="pVl-CV-sYp" secondAttribute="leading" id="DtR-by-dJN"/>
+                            <constraint firstItem="N2h-Ay-W6y" firstAttribute="top" secondItem="2si-dH-DJ0" secondAttribute="bottom" id="cV7-4A-vIh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Embed in UIScrollView" id="RMZ-tG-XRj">
+                        <barButtonItem key="rightBarButtonItem" title="Switch Text" id="0ib-SZ-Zr0">
+                            <connections>
+                                <action selector="switchAction:" destination="cJp-dY-32L" id="pR8-Ox-KBK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
+                    <connections>
+                        <outlet property="switchButton" destination="0ib-SZ-Zr0" id="lw7-Nn-8hT"/>
+                        <outlet property="webView1" destination="MNf-gi-W9I" id="mQ7-Bl-gjg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="85o-0M-jxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1683" y="1196"/>
+        </scene>
+    </scenes>
+</document>
