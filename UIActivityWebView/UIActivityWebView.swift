@@ -8,6 +8,11 @@
 
 import UIKit
 
+struct UIActivityWebViewAnimationOptions {
+	var duration: NSTimeInterval!
+	var option: UIViewAnimationOptions!
+}
+
 // MARK: - Protocol
 //         _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
@@ -25,21 +30,27 @@ import UIKit
 // MARK: - Class
 //         _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
-class UIActivityWebView: UIView, UIWebViewDelegate {
+class UIActivityWebView: UIView, UIWebViewDelegate, UIScrollViewDelegate {
 	
 	// MARK: - Outlets
 	//         _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 	
-	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
+		didSet {
+			activityIndicator.hidden = !showActivityOnLoad
+		}
+	}
 	
 	@IBOutlet weak var webView: UIWebView! {
 		didSet {
 			webView.delegate = self
-			
 			webView.hidden = true
-			webView.alpha = 0.0
+			
+			webView.scrollView.delegate = self
 		}
 	}	
+	
+	var heightConstraint: NSLayoutConstraint!
 	
 	// MARK: - Properties
 	//         _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
@@ -48,43 +59,46 @@ class UIActivityWebView: UIView, UIWebViewDelegate {
 	
 	// Settings
 	
-	var animated: Bool = false
+	var animation: Bool = false
+	var animationOptions: UIActivityWebViewAnimationOptions?
+	
+	var showActivityOnLoad: Bool = true
+	var hideOnStartLoading: Bool = true
 	
 	// Flags
 	
-	var loaded: Bool = false
-
-	var heightConstraint: NSLayoutConstraint!
+	var flag_loaded: Bool = false
+	
+	// MARK: - Initialization
+	//         _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 	
 	init() {
 		super.init(frame: CGRectZero)
 		
 		loadFromNib(nil, bundle: nil)
-		setup()
+		reset()
 	}
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		
 		loadFromNib(nil, bundle: nil)
-		setup()
+		reset()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 
 		loadFromNib(nil, bundle: nil)
-		setup()
+		reset()
 	}
 	
-	func setup() {
-	
-		if let _heightConstraint = constraints.first as NSLayoutConstraint! {
-			
-			heightConstraint = _heightConstraint
-			
-			webView.scrollView.scrollEnabled = false
-		}
+	func reset() {
+		webView.hidden = true
+		webView.alpha = 0.0
+		
+		activityIndicator.hidden = false
+		activityIndicator.alpha = 1.0
 	}
 	
 	// MARK: - UIWebViewDelegate
@@ -97,89 +111,96 @@ class UIActivityWebView: UIView, UIWebViewDelegate {
 
 	func webViewDidStartLoad(webView: UIWebView) {
 		
-		loaded = false
+		flag_loaded = false
 		
-		if !webView.hidden {
-		
-			activityIndicator.hidden = false
-			activityIndicator.alpha = 0.0
+		if webView.hidden {
 			
-			webView.hidden = false
-			webView.alpha = 1.0
+			activityIndicator.hidden = !showActivityOnLoad
+			activityIndicator.alpha = 1.0
+
+		} else {
+
+			if hideOnStartLoading {
 			
-			if animated {
-				UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.TransitionCrossDissolve,
-					animations: {
-						
-						self.activityIndicator.alpha = 1.0
-						webView.alpha = 0.0
-					
-					}, completion: { (Bool) -> Void in
-						
-						self.activityIndicator.hidden = false
-					}
-				)
+				webView.alpha = 0
 				
+				activityIndicator.hidden = !showActivityOnLoad
+				activityIndicator.alpha = 1
+			
 			} else {
 				
-				activityIndicator.hidden = false
-				activityIndicator.alpha = 1.0
+				webView.alpha = 1
 				
-				webView.alpha = 0.0
+				activityIndicator.hidden = true
+				activityIndicator.alpha = 0
 			}
 		}
 		
+		webView.hidden = false
+
 		delagate?.webViewDidStartLoad?(self)
 	}
+	
 
+	var height: NSLayoutConstraint! {
+		for constraint in self.constraints {
+			if constraint.secondItem == nil && constraint.firstAttribute == NSLayoutAttribute.Height {
+				return constraint
+			}
+		}
+		return nil
+	}
+	
 	func webViewDidFinishLoad(webView: UIWebView) {
-
-		loaded = true
 		
-		layoutSubviews()
+		flag_loaded = true
 		
-		activityIndicator.hidden = false
-		activityIndicator.alpha = 1.0
-		
-		webView.hidden = false
-		webView.alpha = 0.0
-		
-		if animated {
+		if animation {
 			
-			UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.TransitionCrossDissolve,
+			UIView.animateWithDuration(animationOptions?.duration ?? 0.3, delay: 0.0, options: animationOptions?.option ?? UIViewAnimationOptions.TransitionNone,
 				animations: {
-				
+					
 					self.activityIndicator.alpha = 0.0
 					webView.alpha = 1.0
-				
-				}, completion: { (Bool) -> Void in
 					
-					self.activityIndicator.hidden = true
-			})
-		
+				}, completion: nil)
+
 		} else {
+			
+			webView.alpha = 1.0
 			
 			activityIndicator.hidden = true
 			activityIndicator.alpha = 0.0
-			
-			webView.alpha = 1.0
 		}
+		
+		layoutSubviews()
 		
 		delagate?.webViewDidFinishLoad?(self)
 	}
 
 	func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
 		
-		loaded = false
+		flag_loaded = false
+		
+		layoutSubviews()
 		
 		delagate?.webView?(self, didFailLoadWithError: error)
+	}	
+	
+	// MARK: - UIScrollViewDelegate
+	//         _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+	
+	func scrollViewDidScroll(scrollView: UIScrollView) {
+		if height != nil {
+			scrollView.contentOffset.y = 0
+		}
 	}
 	
 	// MARK: - Layout
 	//         _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 	
+	
 	override func layoutSubviews() {
-		super.layoutSubviews()
 
 		let originalSize = webView.frame.size
 		
@@ -189,7 +210,7 @@ class UIActivityWebView: UIView, UIWebViewDelegate {
 		// Sometimes contentSize receive not correct size values
 		// so I get contentSize from web view document
 		
-		if loaded {
+		if flag_loaded {
 			if let jHeight = webView.stringByEvaluatingJavaScriptFromString("document.height") {
 				if let jDHeight = Double(jHeight) {
 
@@ -204,21 +225,29 @@ class UIActivityWebView: UIView, UIWebViewDelegate {
 			}
 		}
 		
-		if heightConstraint != nil {
+		if height != nil {
 			
-			heightConstraint.constant = contentSize.height
+			height.constant = contentSize.height
+			
+			frame.size.height = contentSize.height
 			webView.frame.size.height = contentSize.height
+			webView.scrollView.frame.size.height = contentSize.height
 			
 		} else {
 			webView.frame.size = webView.scrollView.scrollEnabled ? originalSize : webView.scrollView.contentSize
+			webView.scrollView.frame.size = webView.frame.size
 		}
 		
-		#if AKDEBUG
+		#if AKUIActivityWebViewDEBUG
 			print("Object ::::::: UIActivityWebView")
 			print("Method ::::::: layoutSubviews")
 			print("               - -")
-			print("Properties ::: webView contentSize > > > \(webView.scrollView.contentSize)")
-			print(":::::::::::::: contentSize > > > \(contentSize)")
+			print("Properties ::: contentSize = \(contentSize)")
+			print("                  ")			
+			print("               UIActivityWebView = \(self.frame)")
+			print("               ↳ webView = \(webView.frame)")
+			print("                 ↳ scrollView = \(webView.scrollView.frame)")
+			print("                   - contentSize = \(webView.scrollView.contentSize)")
 			print("")
 		#endif
 	}

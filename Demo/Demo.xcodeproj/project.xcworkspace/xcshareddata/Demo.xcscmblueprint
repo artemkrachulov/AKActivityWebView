@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6F9D29D2B4BB4096757D3B44CD8B6E138DBE506E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9517F49643BCAEBFF187DC7C816A074D3F831F5B" : 0,
+    "6F9D29D2B4BB4096757D3B44CD8B6E138DBE506E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "84117398-83DC-4814-AC1B-8F730BE24146",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9517F49643BCAEBFF187DC7C816A074D3F831F5B" : "UIActivityWebView\/Submodules\/UIView-loadFromXibNib\/",
+    "6F9D29D2B4BB4096757D3B44CD8B6E138DBE506E" : "UIActivityWebView\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Demo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Demo\/Demo.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/artemkrachulov\/UIActivityWebView.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6F9D29D2B4BB4096757D3B44CD8B6E138DBE506E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/artemkrachulov\/UIView-loadFromXibNib.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9517F49643BCAEBFF187DC7C816A074D3F831F5B"
+    }
+  ]
+}

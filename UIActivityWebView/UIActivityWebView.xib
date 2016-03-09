@@ -16,14 +16,15 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="R8J-fs-sf3">
-                    <rect key="frame" x="290" y="40" width="20" height="20"/>
-                </activityIndicatorView>
                 <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWa-5k-vEQ">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                     <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                 </webView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="R8J-fs-sf3">
+                    <rect key="frame" x="290" y="40" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
+            <color key="backgroundColor" red="0.43582214765100669" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="ZWa-5k-vEQ" secondAttribute="bottom" id="PnO-sO-cCw"/>
                 <constraint firstItem="ZWa-5k-vEQ" firstAttribute="leading" secondItem="JKE-dT-iQ6" secondAttribute="leading" id="WqF-hO-5j0"/>
