@@ -151,8 +151,8 @@
 		436F9F2F1C81B2EF008C0CC1 /* UIActivityWebView */ = {
 			isa = PBXGroup;
 			children = (
-				436F9F301C81B2F7008C0CC1 /* UIActivityWebView.xib */,
 				436F9F341C81B398008C0CC1 /* UIActivityWebView.swift */,
+				436F9F301C81B2F7008C0CC1 /* UIActivityWebView.xib */,
 			);
 			name = UIActivityWebView;
 			path = ../UIActivityWebView;

@@ -24,7 +24,6 @@
                     <rect key="frame" x="290" y="40" width="20" height="20"/>
                 </activityIndicatorView>
             </subviews>
-            <color key="backgroundColor" red="0.43582214765100669" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="ZWa-5k-vEQ" secondAttribute="bottom" id="PnO-sO-cCw"/>
                 <constraint firstItem="ZWa-5k-vEQ" firstAttribute="leading" secondItem="JKE-dT-iQ6" secondAttribute="leading" id="WqF-hO-5j0"/>
