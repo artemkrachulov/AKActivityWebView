@@ -1,24 +1,22 @@
 //
 //  ViewController.swift
-//  UIActivityWebView / Demo
+//  AKActivityWebView
 //
-//  Created by Krachulov Artem
-//  Copyright © 2016 Krachulov Artem . All rights reserved.
+//  Created by Artem Krachulov.
+//  Copyright © 2016 Artem Krachulov. All rights reserved.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
-	
-	// MARK: - Outlets
-	//         _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-	
-	@IBOutlet weak var webView1: UIActivityWebView!
-	
+  
+  //  MARK: - Outlets
+  
+	@IBOutlet weak var webView1: AKActivityWebView!
 	@IBOutlet weak var switchButton: UIBarButtonItem!
-	
-	// Props
-	
+  
+  //  MARK: - Properties
+  
 	var switched = false
 	
 	let html = [
@@ -27,33 +25,30 @@ class ViewController: UIViewController {
 		"<p>Vivamus</p><img src=\"http://lorempixel.com/100/100/city/\">",
 		"<img src=\"http://lorempixel.com/200/150/abstract/\"><p>Ut semper pharetra suscipit. Donec id aliquam eros. Suspendisse et laoreet lectus, ac imperdiet ex.</p><p>Donec pulvinar sapien nunc, sed blandit dui convallis quis. Nunc facilisis cursus nulla eget efficitur. Pellentesque eu est tellus. Pellentesque vitae porta augue. Sed tristique cursus risus. Fusce eget elit lacinia elit consequat placerat.</p><img src=\"http://lorempixel.com/400/300/animals/\">"
 	]
-	
-	// MARK: - Life cycle
-	//         _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-	
+  
+  //  MARK: - Life cycle
+  
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		switchText()
 	}
-	
-	// MARK: - Helper
-	//         _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-	
-	func switchText() {
-		if webView1 != nil {
-			webView1.webView.loadHTMLString(html[random(html.count)], baseURL: nil)
-		}
-	}
-	
-	func random(max: Int) -> Int {
-		return Int(arc4random_uniform(UInt32(max)))
-	}
-	
-	// MARK: - Actions
-	//         _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-	
+	  
+  //  MARK: - Actions
+  
 	@IBAction func switchAction(sender: AnyObject) {
 		switchText()
 	}
+  
+  //  MARK: - Helper
+  
+  func switchText() {
+    if webView1 != nil {
+      webView1.webView.loadHTMLString(html[random(html.count)], baseURL: nil)
+    }
+  }
+  
+  func random(max: Int) -> Int {
+    return Int(arc4random_uniform(UInt32(max)))
+  }
 }

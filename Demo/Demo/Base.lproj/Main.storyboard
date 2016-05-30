@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ete-zy-AKH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ete-zy-AKH">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--UIActivityWebView-->
+        <!--AKActivityWebView-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AKActivityWebView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -25,16 +25,10 @@
                                     <segue destination="kX0-eF-Sxe" kind="show" id="URu-Z4-Zc2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UIView object with UIWebView and UIActivityIndicatorView" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcW-gv-GXn">
-                                <rect key="frame" x="20" y="96" width="560" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UIView сlass which show loader indicator when UIWebView load new content" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcW-gv-GXn">
+                                <rect key="frame" x="20" y="96" width="560" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artem Krachulov" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LlC-K5-uLf">
-                                <rect key="frame" x="20" y="563" width="560" height="17"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Demos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4k3-DC-1LH">
@@ -74,7 +68,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="leadingMargin" secondItem="LlC-K5-uLf" secondAttribute="leading" id="1bU-Mj-DL7"/>
                             <constraint firstItem="2OX-Gu-dvX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="38V-EA-0un"/>
                             <constraint firstItem="mcW-gv-GXn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="6On-Rf-WfN"/>
                             <constraint firstItem="4k3-DC-1LH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7qV-TR-g3H"/>
@@ -84,8 +77,6 @@
                             <constraint firstItem="Kwj-PD-WOP" firstAttribute="top" secondItem="SwZ-Wc-h5e" secondAttribute="bottom" constant="38" id="JWx-ba-wn1"/>
                             <constraint firstItem="2OX-Gu-dvX" firstAttribute="top" secondItem="aH8-Zr-SHj" secondAttribute="bottom" constant="32" id="Oeu-ly-HL7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4k3-DC-1LH" secondAttribute="trailing" id="RCs-pU-SoB"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LlC-K5-uLf" secondAttribute="bottom" constant="20" id="T04-47-4YX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LlC-K5-uLf" secondAttribute="trailing" id="Vwz-u8-OP3"/>
                             <constraint firstItem="SwZ-Wc-h5e" firstAttribute="top" secondItem="2OX-Gu-dvX" secondAttribute="bottom" constant="32" id="eBX-A6-ZC6"/>
                             <constraint firstItem="aH8-Zr-SHj" firstAttribute="top" secondItem="4k3-DC-1LH" secondAttribute="bottom" constant="8" id="eqA-x6-3uQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aH8-Zr-SHj" secondAttribute="trailing" constant="160" id="gtj-tk-8Sr"/>
@@ -96,7 +87,7 @@
                             <constraint firstItem="SwZ-Wc-h5e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="y1H-VX-VoQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="UIActivityWebView" id="lAm-fL-t1L"/>
+                    <navigationItem key="navigationItem" title="AKActivityWebView" id="lAm-fL-t1L"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -105,7 +96,7 @@
         <!--Single UIWebView (no autolayout)-->
         <scene sceneID="lRy-wh-m48">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="kX0-eF-Sxe" customClass="FourthViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="kX0-eF-Sxe" customClass="FourthViewController" customModule="AKActivityWebView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oNG-4E-kaD"/>
                         <viewControllerLayoutGuide type="bottom" id="qcT-0U-Jie"/>
@@ -114,7 +105,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fgb-N7-T2m" customClass="UIActivityWebView" customModule="Demo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fgb-N7-T2m" customClass="AKActivityWebView" customModule="AKActivityWebView" customModuleProvider="target">
                                 <rect key="frame" x="20" y="72" width="335" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -141,7 +132,7 @@
         <!--Single UIWebView-->
         <scene sceneID="JcX-5k-aZP">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="zOf-x0-pZ8" customClass="SecondViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="zOf-x0-pZ8" customClass="SecondViewController" customModule="AKActivityWebView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bp7-oC-l9o"/>
                         <viewControllerLayoutGuide type="bottom" id="ZX0-1N-zbl"/>
@@ -150,7 +141,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0v-KL-3WN" customClass="UIActivityWebView" customModule="Demo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0v-KL-3WN" customClass="AKActivityWebView" customModule="AKActivityWebView" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -182,7 +173,7 @@
         <!--Multiple UIWebView's-->
         <scene sceneID="N1c-D0-f8b">
             <objects>
-                <viewController id="ZWq-83-yGK" customClass="ThirdViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="ZWq-83-yGK" customClass="ThirdViewController" customModule="AKActivityWebView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GAb-pm-vIB"/>
                         <viewControllerLayoutGuide type="bottom" id="1fQ-bJ-jnM"/>
@@ -191,16 +182,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cng-di-oun" customClass="UIActivityWebView" customModule="Demo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cng-di-oun" customClass="AKActivityWebView" customModule="AKActivityWebView" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="179"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opA-7w-Wlt" customClass="UIActivityWebView" customModule="Demo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="421" width="600" height="179"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u1R-TN-chu" customClass="AKActivityWebView" customModule="AKActivityWebView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="243" width="600" height="178"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u1R-TN-chu" customClass="UIActivityWebView" customModule="Demo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="243" width="600" height="178"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="opA-7w-Wlt" customClass="AKActivityWebView" customModule="AKActivityWebView" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="421" width="600" height="179"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -259,7 +250,7 @@
         <!--Embed in UIScrollView-->
         <scene sceneID="mEp-Z4-Ry8">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="cJp-dY-32L" customClass="FirstViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="cJp-dY-32L" customClass="FirstViewController" customModule="AKActivityWebView" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2si-dH-DJ0"/>
                         <viewControllerLayoutGuide type="bottom" id="8Nr-J1-V6F"/>
@@ -274,7 +265,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8f-xd-uTf">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNf-gi-W9I" customClass="UIActivityWebView" customModule="Demo" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNf-gi-W9I" customClass="AKActivityWebView" customModule="AKActivityWebView" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="100"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>

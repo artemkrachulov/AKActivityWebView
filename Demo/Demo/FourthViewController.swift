@@ -1,9 +1,9 @@
 //
 //  FourthViewController.swift
-//  UIActivityWebView / Demo
+//  AKActivityWebView
 //
-//  Created by Krachulov Artem
-//  Copyright © 2016 Krachulov Artem . All rights reserved.
+//  Created by Artem Krachulov.
+//  Copyright © 2016 Artem Krachulov. All rights reserved.
 //
 
 import UIKit

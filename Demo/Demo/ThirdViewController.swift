@@ -1,35 +1,31 @@
 //
 //  ThirdViewController.swift
-//  UIActivityWebView / Demo
+//  AKActivityWebView
 //
-//  Created by Krachulov Artem
-//  Copyright © 2016 Krachulov Artem . All rights reserved.
+//  Created by Artem Krachulov.
+//  Copyright © 2016 Artem Krachulov. All rights reserved.
 //
 
 import UIKit
 
 class ThirdViewController: ViewController {	
-
-	// MARK: - Outlets
-	//         _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-	
-	@IBOutlet weak var webView2: UIActivityWebView!
-	
-	@IBOutlet weak var webView3: UIActivityWebView!
-	
-	// MARK: - Life cycle
-	//         _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-	
+  
+  //  MARK: - Outlets
+  
+	@IBOutlet weak var webView2: AKActivityWebView!
+	@IBOutlet weak var webView3: AKActivityWebView!
+  
+  //  MARK: - Life cycle
+  
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		webView2.webView.loadHTMLString(html[random(html.count)], baseURL: nil)
 		webView3.webView.loadHTMLString(html[random(html.count)], baseURL: nil)
 	}
-	
-	// MARK: - Helper
-	//         _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
-	
+  
+  //  MARK: - Helper
+  
 	override func switchText() {
 		super.switchText()
 		
