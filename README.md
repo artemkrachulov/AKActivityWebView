@@ -14,7 +14,7 @@
 ### Standalone
 
 ```swift
-var activityWebView: AKActivityWebView!
+@IBOutlet weak var activityWebView: AKActivityWebView!
 
 override func viewDidLoad() {
     super.viewDidLoad()
