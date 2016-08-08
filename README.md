@@ -1,82 +1,27 @@
-# AKLocationManager
+# AKActivityWebView
 
-Location manager class which can better controll your location.
+**`AKActivityWebView`** is `UIView` class with activity indicator and web view. Supporting auto resizing dimensions according content size after web view finish loading.
 
 ## Features
 
-* Detect first location.
-* Updating locaiton with timers.
-* Updating location when moving, disable when you stop.
-* Connection Google Map location manager.
-* Play / Pause updating locaiton.
-* Better error management.
+* Animation support
+* Manually control resizing dimensions
+* Lightweight
 
 ## Usage
+
 
 ### Standalone
 
 ```swift
-var locationManager: AKLocationManager!
+var activityWebView: AKActivityWebView!
 
 override func viewDidLoad() {
     super.viewDidLoad()
 
-    locationManager = AKLocationManager()
-    locationManager.startUpdatingLocationWithRequest()
-}
-
-override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-
-    locationManager.stopUpdatingLocation()
+    activityWebView.webView.loadHTMLString("<h2>Lorem Ipsum is simply dummy text</h2>", baseURL: nil)
 }
 ```
-
-### With google maps
-
-```swift
-var locationManager: AKLocationManager! {
-    didSet { locationManagerger.delegate = self }
-}
-var mapView: GMSMapView!
-
-//  MARK: - Life cycle
-
-override func viewDidLoad() {
-    super.viewDidLoad()
-
-    locationManager = AKLocationManager()
-
-    mapView = GMSMapView()
-    mapView.alpha = 0
-    mapView.frame = view.frame
-
-    view.addSubview(mapView)
-    view.sendSubviewToBack(mapView)
-
-    locationManager.addObserver(mapView, forKeyPath: "myLocation")
-    locationManager.requestForUpdatingLocation()
-    mapView.myLocationEnabled = true
-    locationManager.startUpdatingLocation()
-}
-
-override func viewWillDisappear(animated: Bool) {
-    super.viewWillDisappear(animated)
-
-    locationManager.stopUpdatingLocation()
-}
-
-//  MARK: - AKLocationManagerDelegate
-
-extension DemoViewController: AKLocationManagerDelegate {
-    func locationManager(manager: AKLocationManager, didGetFirstLocation location: CLLocation) {
-        mapView.camera = GMSCameraPosition.cameraWithLatitude(location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 12)
-        mapView.alpha = 1
-    }
-}
-```
-
-> Before enable my location with `myLocationEnabled` property from `GMSMapView` class, call `requestForUpdatingLocation()` method.
 
 ---
 
@@ -88,209 +33,112 @@ extension DemoViewController: AKLocationManagerDelegate {
 ## Installation
 
 1. Clone or download demo project.
-2. Add `AKLocationManager ` folder to your project.
+2. Add `AKActivityWebView ` folder to your project.
 
-> Demo project require GoogleMaps pod. You need install pod with command `pod install`. Open `Demo.xcworkspace` file and past your api key `__API_KEY__`from Google Developers Console.
-
-## Requesting Authorization for Location Services
+## Acces to objects
 
 ```swift
-func requestForUpdatingLocation(requestType: AKLocationManagerRequestType = default)
+public var webView: UIWebView!
 ```
+`UIWebView` class. Read more [UIWebView Class Reference](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIWebView_Class/)
 
-Requests permission to use location services.
+You can customize `backgroundColor` and `opaque` properties from `AKActivityWebView` object. Customization of this properties will take effect on `webView` object. 
+
+
+```swift
+public var activityIndicator: UIActivityIndicatorView!
+```
+`UIActivityIndicatorView` class. Read more [UIActivityIndicatorView Class Reference](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIActivityIndicatorView_Class/)
+
+## Auto resizing dimensions
+
+```swift
+public var adjustingDimensions: AKActivityWebViewAdjustingDimensions
+```
+Adjusting `AKActivityWebView` height (and height constraint) after loading content.   
+The initial value of this property is `.Auto`
+
+Options:
+
+- `.Auto` : Depends on vertical constraint. If height constraint will exist, frames will take size of loaded content size. Otherwise frames sizes will not changed and web view will have scroll if needed.
+- `.Disable` : Frames sizes will not changed and web view will have scroll if needed.
+- `.Enable` : Frames will take size of loaded content size.
+
+## Animation
+
+```swift
+public var animationEnabled: Bool
+```
+A Boolean value that determines whether animation is enabled.   
+The initial value of this property is `false`.
+
+
+```swift
+public var animationOptions: AKActivityWebViewAnimationOptions
+```
+Animation options.
+
 Parameters:
-* `requestType` : Request authorization type for Location Services. Represents as `AKLocationManagerRequestType`. Default value is `.WhenInUse`.
 
-## Initiating Standard Location Updates
+- `duration` : The total duration of the animations, measured in seconds. If you specify a negative value or 0, the changes are made without animating them.
+- `option` : A mask of options indicating how you want to perform the animations. For a list of valid constants, see UIViewAnimationOptions.
 
-```swift
- func startUpdatingLocation()
-```
 
-Starts the generation of updates that report the user’s current location.
+## Set up
 
 ```swift
-func startUpdatingLocationWithRequest(requestType: AKLocationManagerRequestType = default)
+public var activityIndicatorEnabled: Bool
 ```
-
-Starts the generation of updates that report the user’s current location with requests permission to use location services.
-Parameters:
-* `requestType` : Request authorization type for Location Services. Represents as `AKLocationManagerRequestType`. Default value is `.WhenInUse`.
+Show or hide activity indicator generally.   
+The initial value of this property is `false`.
 
 ```swift
- func stopUpdatingLocation()
+public var hideWebViewOnLoading: Bool
 ```
 
-Stops the generation of location updates.
-
-```swift
-func requestLocation()
-```
-
-Request the one-time delivery of the user’s current location.
-
-## Observerving custom location manager
-
- ```swift
-func addObserver(target: AnyObject, forKeyPath keyPath: String)
-```
-
-Registers an observer to receive KVO notifications for the specified key-path relative to the receiver.
-Parameters:
-- `target` : The object to register for KVO notifications.
-- `keyPath` : The key path, relative to the receiver, of the property to observe. This value must not be nil.
-
- ```swift
-func removeObserver()
-```
-
-Stops a given object from receiving change notifications for the property specified by a given key-path relative to the receiver.
-
-## Getting Recently Retrieved Data
-
-```swift
-var myLocation: CLLocation? {get}
-```
-
-The most recently retrieved user location. (read-only). The value of this property is `nil` if no location data has ever been retrieved.
-
-## Configurate
-
-```swift
-var updateSpeed: CLLocationSpeed
-```
-
-Specifies the speed in meters per second, when location must be updated not less that `updateLocationTimeInterval` minimum property.
-Example:
-- `0` : Stand
-- `0.3 - 1.4` : Walk
-- `1.4 - 4` : Run
--  `4 - 12` : Bicycle
-
-The initial value of this property is `0.4` meters per second. Walk.
-
-```swift
-var updateLocationTimeInterval: AKLocationManagerTimeInterval
-```
-
-Specifies the minimum and maximum update time intervar in secounds. Updating location will be no earlier than minimum time interval value with condition: "current speed more or equal to updateSpeed property and not equal zero". But if the condition is not satisfied, updating location will be no earlier than maximum time interval value.
-The initial value of this property is `5.0` seconds for minimum time interval and `300.0` seconds for maximum.
-
-```swift
-var firstLocationAttempts: Int
-```
-
-Specifies the count of attempts when location manager will try to get first location. One attempt every second. When all attempts is over, location manager will return error `.LocationManagerCantDetectFirstLocation` with error protocol method: `func locationManager(manager: AKLocationManager, didGetError error: AKLocationManagerError)`.
-The initial value of this property is `5` attempts.
+Hide and show web view if loading process is active.   
+The initial value of this property is `true`.
 
 ### Accessing the Delegate
 
 ```swift
-weak var delegate: AKLocationManagerDelegate?
+weak var delegate: AKActivityWebViewDelegate?
 ```
 
 The delegate object to receive update events.
 
-## AKLocationManagerDelegate
+## AKActivityWebViewDelegate
 
 ```swift
-func locationManager(manager: AKLocationManager, didGetFirstLocation location: CLLocation)
+optional func activityWebViewDidStartLoad(activityWebView: AKActivityWebView, webView: UIWebView)
 ```
-
-Tells the delegate that fitst location data is received.
+Sent after a web view starts loading a frame.
 
 Parameters:
-* `manager` : The location manager object that generated the update event.
-* `location` :The most recently retrieved user location.
+
+- `activityWebView` : The main object.
+- `webView` : The web view that has begun loading a new frame.
 
 ```swift
-func locationManager(manager: AKLocationManager, didUpdateLocation location: CLLocation)
+optional func activityWebViewFinishLoad(activityWebView: AKActivityWebView, webView: UIWebView)
 ```
+Sent after a web view finishes loading a frame.
 
-Tells the delegate that new location data is available. Default sender of this method on core location manager. After registering observer (ex. Google Maps) sender will be custom location manager.
 Parameters:
-* `manager` : The location manager object that generated the update event.
-* `location` :The most recently retrieved user location.
+
+- `activityWebView` : The main object.
+- `webView` : The web view has finished loading.
 
 ```swift
-locationManager(manager: AKLocationManager, didUpdateLocation location: CLLocation, afterTimeInterval timeInterval: NSTimeInterval)
+optional func activityWebView(activityWebView: AKActivityWebView, webView: UIWebView, didFailLoadWithError error: NSError?)
 ```
+Sent if a web view failed to load a frame.
 
-Default sender of this method on core location manager. After registering observer (ex. Google Maps) sender will be custom location manager. Updating location will be no earlier than minimum or maximum time interval value.
 Parameters:
-* `manager` : The location manager object that generated the update event.
-* `location` :The most recently retrieved user location.
-* `timeInterval` : Time interval value from since last update.
 
-```swift
-func locationManager(manager: AKLocationManager, didGetError error: AKLocationManagerError)
-```
-
-Tells the delegate that the location manager was unable to retrieve a location value.
-Parameters:
-* `manager` : The location manager object that generated the update event.
-* `error` : The error object containing the reason the location or heading could not be retrieved. Represents as `AKLocationManagerError`.
-
-```swift
-func locationManager(manager: AKLocationManager, didGetNotification notification: AKLocationManagerNotification)
-```
-
-Tells the delegate that the location manager detect new notification.
-Parameters:
-* `manager` : The location manager object that generated the update event.
-* `notification` : Current notification. Represents as `AKLocationManagerNotification` enumeration object.
-
-## AKLocationManagerRequestType
-
-```swift
-enum AKLocationManagerRequestType {
-    case WhenInUse
-    case Always
-}
-```
-
-Properties:
-* `WhenInUse` : Equal `requestWhenInUseAuthorization()` method. Read more on [Apple Developer](https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/#//apple_ref/occ/instm/CLLocationManager/requestWhenInUseAuthorization)
-* `Always` : Equal `requestAlwaysAuthorization()` method. Read more on [Apple Developer](https://developer.apple.com/library/ios/documentation/CoreLocation/Reference/CLLocationManager_Class/#//apple_ref/occ/instm/CLLocationManager/requestAlwaysAuthorization)
-
-## AKLocationManagerError
-
-```swift
-enum AKLocationManagerError: ErrorType {
-    case LocationManagerCantDetectFirstLocation
-}
-```
-
-Properties:
-* `LocationManagerCantDetectFirstLocation` : Error returns when location manager can't detect first location when all attempts is over.
-
-## AKLocationManagerNotification
-
-```swift
-enum AKLocationManagerNotification {
-    case LocationManagerNotAuthorized
-    case UserAuthorizationDenied
-    case UserAuthorizedAlways
-    case UserAuthorizedWhenInUse
-    case AuthorizationDenied
-    case AuthorizedAlways
-    case AuthorizedWhenInUse
-    case AppInBackground
-    case AppActive
-}
-```
-
-Properties:
-* `LocationManagerNotAuthorized` : Notification returns when you start  starts the generation of updates but location manager not authorized.
-* `UserAuthorizationDenied` : Notification returns when user denied generation of location updates in device Settings (select Never).
-* `UserAuthorizedAlways` : Notification returns when user allowed generation of location updates in device Settings (select Always).
-* `UserAuthorizedWhenInUse` : Notification returns when user allowed generation of location updates in device Settings (select While Using the App).
-* `AuthorizationDenied` : Notification returns when location manager detect changing authorization status.
-* `AuthorizedAlways` : Notification returns when location manager detect changing authorization status.
-* `AuthorizedWhenInUse` : Notification returns when location manager detect changing authorization status.
-* `AppInBackground` : Notification returns when the app is no longer active and loses focus.
-* `AppActive` : Notification returns when the app becomes active.
+- `activityWebView` : The main object.
+- `webView` : The web view that failed to load a frame.
+- `error` : The error that occurred during loading.
 
 ---
 
