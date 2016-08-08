@@ -8,34 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		436F9F021C81B298008C0CC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F9F011C81B298008C0CC1 /* AppDelegate.swift */; };
-		436F9F041C81B298008C0CC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F9F031C81B298008C0CC1 /* ViewController.swift */; };
+		436F9F041C81B298008C0CC1 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F9F031C81B298008C0CC1 /* DemoViewController.swift */; };
 		436F9F071C81B298008C0CC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 436F9F051C81B298008C0CC1 /* Main.storyboard */; };
 		436F9F091C81B298008C0CC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 436F9F081C81B298008C0CC1 /* Assets.xcassets */; };
 		436F9F0C1C81B298008C0CC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 436F9F0A1C81B298008C0CC1 /* LaunchScreen.storyboard */; };
-		436F9F3A1C81B51A008C0CC1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F9F391C81B51A008C0CC1 /* FirstViewController.swift */; };
-		439061FB1CFC52BA00BB9449 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439061FA1CFC52BA00BB9449 /* UIView+Extension.swift */; };
 		439061FF1CFC533800BB9449 /* AKActivityWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 439061FD1CFC533800BB9449 /* AKActivityWebView.swift */; };
-		439062001CFC533800BB9449 /* AKActivityWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 439061FE1CFC533800BB9449 /* AKActivityWebView.xib */; };
-		43B660A01C843C0500F091F4 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B6609F1C843C0500F091F4 /* SecondViewController.swift */; };
-		43B660A21C84406300F091F4 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B660A11C84406300F091F4 /* ThirdViewController.swift */; };
-		43E3932B1C84A674000286D0 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E3932A1C84A674000286D0 /* FourthViewController.swift */; };
+		43B660A21C84406300F091F4 /* DemoMultipleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B660A11C84406300F091F4 /* DemoMultipleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		436F9EFE1C81B298008C0CC1 /* AKActivityWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AKActivityWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		436F9F011C81B298008C0CC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		436F9F031C81B298008C0CC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		436F9F031C81B298008C0CC1 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		436F9F061C81B298008C0CC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		436F9F081C81B298008C0CC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		436F9F0B1C81B298008C0CC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		436F9F0D1C81B298008C0CC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		436F9F391C81B51A008C0CC1 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		439061FA1CFC52BA00BB9449 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		439061FD1CFC533800BB9449 /* AKActivityWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKActivityWebView.swift; sourceTree = "<group>"; };
-		439061FE1CFC533800BB9449 /* AKActivityWebView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AKActivityWebView.xib; sourceTree = "<group>"; };
-		43B6609F1C843C0500F091F4 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		43B660A11C84406300F091F4 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		43E3932A1C84A674000286D0 /* FourthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		43B660A11C84406300F091F4 /* DemoMultipleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoMultipleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +42,6 @@
 		436F9EF51C81B297008C0CC1 = {
 			isa = PBXGroup;
 			children = (
-				436F9F361C81B3D9008C0CC1 /* Submodules */,
 				439061FC1CFC533800BB9449 /* AKActivityWebView */,
 				436F9F001C81B298008C0CC1 /* Demo */,
 				436F9EFF1C81B298008C0CC1 /* Products */,
@@ -71,11 +60,8 @@
 			isa = PBXGroup;
 			children = (
 				436F9F011C81B298008C0CC1 /* AppDelegate.swift */,
-				436F9F031C81B298008C0CC1 /* ViewController.swift */,
-				436F9F391C81B51A008C0CC1 /* FirstViewController.swift */,
-				43B6609F1C843C0500F091F4 /* SecondViewController.swift */,
-				43B660A11C84406300F091F4 /* ThirdViewController.swift */,
-				43E3932A1C84A674000286D0 /* FourthViewController.swift */,
+				436F9F031C81B298008C0CC1 /* DemoViewController.swift */,
+				43B660A11C84406300F091F4 /* DemoMultipleViewController.swift */,
 				436F9F051C81B298008C0CC1 /* Main.storyboard */,
 				436F9F0A1C81B298008C0CC1 /* LaunchScreen.storyboard */,
 				436F9F081C81B298008C0CC1 /* Assets.xcassets */,
@@ -84,28 +70,10 @@
 			path = Demo;
 			sourceTree = "<group>";
 		};
-		436F9F361C81B3D9008C0CC1 /* Submodules */ = {
-			isa = PBXGroup;
-			children = (
-				439061F91CFC52BA00BB9449 /* UIView+Extension */,
-			);
-			name = Submodules;
-			sourceTree = "<group>";
-		};
-		439061F91CFC52BA00BB9449 /* UIView+Extension */ = {
-			isa = PBXGroup;
-			children = (
-				439061FA1CFC52BA00BB9449 /* UIView+Extension.swift */,
-			);
-			name = "UIView+Extension";
-			path = "Vendor/UIView-Extension/Source";
-			sourceTree = "<group>";
-		};
 		439061FC1CFC533800BB9449 /* AKActivityWebView */ = {
 			isa = PBXGroup;
 			children = (
 				439061FD1CFC533800BB9449 /* AKActivityWebView.swift */,
-				439061FE1CFC533800BB9449 /* AKActivityWebView.xib */,
 			);
 			name = AKActivityWebView;
 			path = ../AKActivityWebView;
@@ -169,7 +137,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				439062001CFC533800BB9449 /* AKActivityWebView.xib in Resources */,
 				436F9F0C1C81B298008C0CC1 /* LaunchScreen.storyboard in Resources */,
 				436F9F091C81B298008C0CC1 /* Assets.xcassets in Resources */,
 				436F9F071C81B298008C0CC1 /* Main.storyboard in Resources */,
@@ -183,13 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B660A01C843C0500F091F4 /* SecondViewController.swift in Sources */,
-				436F9F3A1C81B51A008C0CC1 /* FirstViewController.swift in Sources */,
-				439061FB1CFC52BA00BB9449 /* UIView+Extension.swift in Sources */,
-				43B660A21C84406300F091F4 /* ThirdViewController.swift in Sources */,
+				43B660A21C84406300F091F4 /* DemoMultipleViewController.swift in Sources */,
 				439061FF1CFC533800BB9449 /* AKActivityWebView.swift in Sources */,
-				43E3932B1C84A674000286D0 /* FourthViewController.swift in Sources */,
-				436F9F041C81B298008C0CC1 /* ViewController.swift in Sources */,
+				436F9F041C81B298008C0CC1 /* DemoViewController.swift in Sources */,
 				436F9F021C81B298008C0CC1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,11 +264,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-D AKUIActivityWebViewDEBUG";
+				OTHER_SWIFT_FLAGS = "-D AKActivityWebViewDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.artemkrachulov.AKActivityWebView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -313,10 +281,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.artemkrachulov.AKActivityWebView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Release;

@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  AKActivityWebView
+//  DemoViewController.swift
+//  Demo
 //
 //  Created by Artem Krachulov.
 //  Copyright © 2016 Artem Krachulov. All rights reserved.
@@ -8,18 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class DemoViewController: UIViewController {
   
   //  MARK: - Outlets
   
-	@IBOutlet weak var webView1: AKActivityWebView!
+  @IBOutlet weak var activityWebView: AKActivityWebView! {
+    didSet {
+      activityWebView.activityIndicator.color = UIColor.blackColor()
+    }
+  }  
 	@IBOutlet weak var switchButton: UIBarButtonItem!
   
   //  MARK: - Properties
-  
-	var switched = false
-	
-	let html = [
+
+	final let html = [
 		"<h2>Lorem Ipsum is simply dummy</h2><p>text of the printing and typesetting industry.</p><img src=\"http://lorempixel.com/300/150/sports/\"><p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p><p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p><h1>It was popularised</h1><p>In the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>",
 		"<p>Pellentesque rhoncus volutpat leo feugiat imperdiet. Vestibulum eu ultricies neque.</p>",
 		"<p>Vivamus</p><img src=\"http://lorempixel.com/100/100/city/\">",
@@ -43,12 +45,10 @@ class ViewController: UIViewController {
   //  MARK: - Helper
   
   func switchText() {
-    if webView1 != nil {
-      webView1.webView.loadHTMLString(html[random(html.count)], baseURL: nil)
-    }
+    activityWebView?.webView.loadHTMLString(html[random(html.count)], baseURL: nil)
   }
   
-  func random(max: Int) -> Int {
+  final func random(max: Int) -> Int {
     return Int(arc4random_uniform(UInt32(max)))
   }
 }
