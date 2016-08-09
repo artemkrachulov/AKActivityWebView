@@ -6,6 +6,24 @@
 //  Copyright (c) 2016 Artem Krachulov. All rights reserved.
 //	http://www.artemkrachulov.com
 //
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+// and associated documentation files (the "Software"), to deal in the Software without restriction,
+// including without limitation the rights to use, copy, modify, merge, publish, distribute,
+// sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all copies or
+// substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+// PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+// FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+// DEALINGS IN THE SOFTWARE.
+//
+// v. 0.1
+//
 
 import UIKit
 
@@ -44,14 +62,14 @@ public enum AKActivityWebViewAdjustingDimensions {
   ///
   /// - parameter activityWebView: The main object.
   /// - parameter webView: The web view has finished loading.
-	optional func activityWebViewFinishLoad(activityWebView: AKActivityWebView, webView: UIWebView)
+  optional func activityWebViewFinishLoad(activityWebView: AKActivityWebView, webView: UIWebView)
   
   /// Sent if a web view failed to load a frame.
   ///
   /// - parameter activityWebView: The main object.
   /// - parameter webView: The web view that failed to load a frame.
   /// - parameter error: The error that occurred during loading.
-	optional func activityWebView(activityWebView: AKActivityWebView, webView: UIWebView, didFailLoadWithError error: NSError?)
+  optional func activityWebView(activityWebView: AKActivityWebView, webView: UIWebView, didFailLoadWithError error: NSError?)
 }
 
 /// Class with activity indicator and web view. Supporting auto resizing dimensions according content size after web view finish loading.
@@ -72,7 +90,7 @@ public class AKActivityWebView: UIView {
   /// Height constraint which set from storyboard or manually, before initialization.
   private var heightConstraint: NSLayoutConstraint?
   
-  /// Activity indicator. 
+  /// Activity indicator.
   /// Read more [UIActivityIndicatorView Class Reference](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIActivityIndicatorView_Class/)
   public var activityIndicator: UIActivityIndicatorView!
   
@@ -111,17 +129,17 @@ public class AKActivityWebView: UIView {
   /// - parameter duration: The total duration of the animations, measured in seconds. If you specify a negative value or 0, the changes are made without animating them.
   /// - parameter options: A mask of options indicating how you want to perform the animations. For a list of valid constants, see UIViewAnimationOptions.
   public var animationOptions = AKActivityWebViewAnimationOptions(duration: 0.3, option: .CurveEaseInOut)
-
+  
   //  MARK: Set up
-
+  
   /// Show or hide activity indicator generally.
   /// The initial value of this property is `true`.
-	public var activityIndicatorEnabled: Bool = true
+  public var activityIndicatorEnabled: Bool = true
   
   /// Hide and show web view if loading process is active.
   /// The initial value of this property is `true`.
-	public var hideWebViewOnLoading: Bool = true
-
+  public var hideWebViewOnLoading: Bool = true
+  
   /// A Boolean value that determines whether loading is finished.
   private var loadingFinished: Bool = false
   
@@ -130,31 +148,31 @@ public class AKActivityWebView: UIView {
   /// The delegate object to receive update events.
   weak var delegate: AKActivityWebViewDelegate?
   
-    //  MARK: - Initialization
+  //  MARK: - Initialization
   
-	init() {
-		super.init(frame: CGRectZero)
-		setupUI()
-	}
-	
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-		setupUI()
-	}
-	
-	required public init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-		setupUI()
-	}
+  init() {
+    super.init(frame: CGRectZero)
+    setupUI()
+  }
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    setupUI()
+  }
+  
+  required public init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    setupUI()
+  }
   
   deinit {
     #if AKActivityWebViewDEBUG
       print("\(self.dynamicType) \(#function)")
     #endif
   }
-	
+  
   private func setupUI() {
-
+    
     heightConstraint = heightContraint(self)
     
     webView = UIWebView()
@@ -191,6 +209,7 @@ public class AKActivityWebView: UIView {
       activityIndicator.centerXAnchor.constraintEqualToAnchor(centerXAnchor).active = true
       activityIndicator.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
     } else {
+      
       addConstraint(NSLayoutConstraint(
         item: activityIndicator,
         attribute: .CenterX,
@@ -216,11 +235,11 @@ public class AKActivityWebView: UIView {
     webView.backgroundColor = backgroundColor
     webView.opaque = opaque
   }
- 
+  
   //  MARK: - Layouting
   
-	override public func layoutSubviews() {
-
+  override public func layoutSubviews() {
+    
     if loadingFinished {
       
       webView.frame.size.height = 1
@@ -245,6 +264,7 @@ public class AKActivityWebView: UIView {
         if heightConstraint != nil {
           heightConstraint?.constant = contentSize.height
           webView.frame.size = contentSize
+          frame.size = contentSize
         } else {
           heightConstraint?.constant = frame.size.height
           webView.frame.size = frame.size
@@ -252,6 +272,7 @@ public class AKActivityWebView: UIView {
       } else if adjustingDimensions == .Enable {
         heightConstraint?.constant = contentSize.height
         webView.frame.size = contentSize
+        frame.size = contentSize
       } else {
         heightConstraint?.constant = frame.size.height
         webView.frame.size = frame.size
@@ -259,7 +280,7 @@ public class AKActivityWebView: UIView {
     } else {
       heightConstraint?.constant = frame.size.height
     }
- 
+    
     super.layoutSubviews()
     
     #if AKActivityWebViewDEBUG
@@ -267,7 +288,7 @@ public class AKActivityWebView: UIView {
       print("AKActivityWebView: \(self)")
       print("webView: \(webView)")
     #endif
-	}
+  }
   
   private func heightContraint(view: UIView) -> NSLayoutConstraint! {
     for constraint in view.constraints {
@@ -279,11 +300,11 @@ public class AKActivityWebView: UIView {
   }
   
   private func _webViewDidFinishLoad(webView: UIWebView) {
-
+    
     loadingFinished = true
     
     activityIndicator.stopAnimating()
-
+    
     if animationEnabled {
       UIView.animateWithDuration(animationOptions.duration,
                                  delay: 0.0,
@@ -297,7 +318,7 @@ public class AKActivityWebView: UIView {
             self.activityIndicator.hidden = true
           }
       })
-    } else {      
+    } else {
       activityIndicator.alpha = 0.0
       webView.alpha = 1.0
       
@@ -311,13 +332,13 @@ public class AKActivityWebView: UIView {
 //  MARK: - UIWebViewDelegate
 
 extension AKActivityWebView: UIWebViewDelegate {
-
+  
   public func webViewDidStartLoad(webView: UIWebView) {
-
+    
     loadingFinished = false
     
     activityIndicator.startAnimating()
-
+    
     if hideWebViewOnLoading {
       webView.alpha = 0
       activityIndicator.hidden = !activityIndicatorEnabled
@@ -327,7 +348,7 @@ extension AKActivityWebView: UIWebViewDelegate {
       activityIndicator.hidden = true
       activityIndicator.alpha = 0
     }
-
+    
     delegate?.activityWebViewDidStartLoad?(self, webView: webView)
   }
   
