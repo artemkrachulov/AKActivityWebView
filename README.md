@@ -83,7 +83,6 @@ Parameters:
 - `duration` : The total duration of the animations, measured in seconds. If you specify a negative value or 0, the changes are made without animating them.
 - `option` : A mask of options indicating how you want to perform the animations. For a list of valid constants, see UIViewAnimationOptions.
 
-
 ## Set up
 
 ```swift
@@ -99,7 +98,7 @@ public var hideWebViewOnLoading: Bool
 Hide and show web view if loading process is active.   
 The initial value of this property is `true`.
 
-### Accessing the Delegate
+## Accessing the Delegate
 
 ```swift
 weak var delegate: AKActivityWebViewDelegate?
@@ -107,7 +106,7 @@ weak var delegate: AKActivityWebViewDelegate?
 
 The delegate object to receive update events.
 
-## AKActivityWebViewDelegate
+### AKActivityWebViewDelegate
 
 ```swift
 optional func activityWebViewDidStartLoad(activityWebView: AKActivityWebView, webView: UIWebView)
