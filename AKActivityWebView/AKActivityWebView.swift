@@ -115,7 +115,7 @@ public class AKActivityWebView: UIView {
   //  MARK: Set up
 
   /// Show or hide activity indicator generally.
-  /// The initial value of this property is `false`.
+  /// The initial value of this property is `true`.
 	public var activityIndicatorEnabled: Bool = true
   
   /// Hide and show web view if loading process is active.
@@ -161,43 +161,56 @@ public class AKActivityWebView: UIView {
     webView.translatesAutoresizingMaskIntoConstraints = false
     addSubview(webView)
     
-    let viewsDictionary = ["webView": webView]
-    addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-      "H:|-0-[webView]-0-|",
-      options: NSLayoutFormatOptions(rawValue: 0),
-      metrics: nil,
-      views:
-      viewsDictionary))
+    if #available(iOS 9.0, *) {
+      webView.topAnchor.constraintEqualToAnchor(topAnchor).active = true
+      webView.rightAnchor.constraintEqualToAnchor(rightAnchor).active = true
+      webView.bottomAnchor.constraintEqualToAnchor(bottomAnchor).active = true
+      webView.leftAnchor.constraintEqualToAnchor(leftAnchor).active = true
+    } else {
+      let viewsDictionary = ["webView": webView]
+      addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+        "H:|-0-[webView]-0-|",
+        options: NSLayoutFormatOptions(rawValue: 0),
+        metrics: nil,
+        views:
+        viewsDictionary))
+      
+      addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
+        "V:|-0-[webView]-0-|",
+        options: NSLayoutFormatOptions(rawValue: 0),
+        metrics: nil,
+        views: viewsDictionary))
+    }
     
-    addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(
-      "V:|-0-[webView]-0-|",
-      options: NSLayoutFormatOptions(rawValue: 0),
-      metrics: nil,
-      views: viewsDictionary))
     
     activityIndicator = UIActivityIndicatorView()
     activityIndicator.translatesAutoresizingMaskIntoConstraints = false
     addSubview(activityIndicator)
-        
-    addConstraint(NSLayoutConstraint(
-      item: activityIndicator,
-      attribute: .CenterX,
-      relatedBy: .Equal,
-      toItem: self,
-      attribute: .CenterX,
-      multiplier: 1,
-      constant: 0
-    ))
     
-    addConstraint(NSLayoutConstraint(
-      item: activityIndicator,
-      attribute: .CenterY,
-      relatedBy: .Equal,
-      toItem: self,
-      attribute: .CenterY,
-      multiplier: 1,
-      constant: 0
-    ))
+    if #available(iOS 9.0, *) {
+      activityIndicator.centerXAnchor.constraintEqualToAnchor(centerXAnchor).active = true
+      activityIndicator.centerYAnchor.constraintEqualToAnchor(centerYAnchor).active = true
+    } else {
+      addConstraint(NSLayoutConstraint(
+        item: activityIndicator,
+        attribute: .CenterX,
+        relatedBy: .Equal,
+        toItem: self,
+        attribute: .CenterX,
+        multiplier: 1,
+        constant: 0
+        ))
+      
+      addConstraint(NSLayoutConstraint(
+        item: activityIndicator,
+        attribute: .CenterY,
+        relatedBy: .Equal,
+        toItem: self,
+        attribute: .CenterY,
+        multiplier: 1,
+        constant: 0
+        ))
+    }
     
     webView.delegate = self
     webView.backgroundColor = backgroundColor

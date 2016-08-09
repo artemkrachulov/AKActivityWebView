@@ -33,7 +33,7 @@ override func viewDidLoad() {
 ## Installation
 
 1. Clone or download demo project.
-2. Add `AKActivityWebView ` folder to your project.
+2. Add `AKActivityWebView` folder to your project.
 
 ## Acces to objects
 
@@ -90,7 +90,7 @@ Parameters:
 public var activityIndicatorEnabled: Bool
 ```
 Show or hide activity indicator generally.   
-The initial value of this property is `false`.
+The initial value of this property is `true`.
 
 ```swift
 public var hideWebViewOnLoading: Bool
