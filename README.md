@@ -10,9 +10,6 @@
 
 ## Usage
 
-
-### Standalone
-
 ```swift
 @IBOutlet weak var activityWebView: AKActivityWebView!
 
@@ -46,14 +43,14 @@ You can customize `backgroundColor` and `opaque` properties from `AKActivityWebV
 
 
 ```swift
-public var activityIndicator: UIActivityIndicatorView!
+var activityIndicator: UIActivityIndicatorView!
 ```
 `UIActivityIndicatorView` class. Read more [UIActivityIndicatorView Class Reference](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIActivityIndicatorView_Class/)
 
 ## Auto resizing dimensions
 
 ```swift
-public var adjustingDimensions: AKActivityWebViewAdjustingDimensions
+var adjustingDimensions: AKActivityWebViewAdjustingDimensions
 ```
 Adjusting `AKActivityWebView` height (and height constraint) after loading content.   
 The initial value of this property is `.Auto`
@@ -67,14 +64,14 @@ Options:
 ## Animation
 
 ```swift
-public var animationEnabled: Bool
+var animationEnabled: Bool
 ```
 A Boolean value that determines whether animation is enabled.   
 The initial value of this property is `false`.
 
 
 ```swift
-public var animationOptions: AKActivityWebViewAnimationOptions
+var animationOptions: AKActivityWebViewAnimationOptions
 ```
 Animation options.
 
@@ -86,13 +83,13 @@ Parameters:
 ## Set up
 
 ```swift
-public var activityIndicatorEnabled: Bool
+var activityIndicatorEnabled: Bool
 ```
 Show or hide activity indicator generally.   
 The initial value of this property is `true`.
 
 ```swift
-public var hideWebViewOnLoading: Bool
+var hideWebViewOnLoading: Bool
 ```
 
 Hide and show web view if loading process is active.   
