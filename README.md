@@ -35,7 +35,7 @@ override func viewDidLoad() {
 ## Acces to objects
 
 ```swift
-public var webView: UIWebView!
+var webView: UIWebView!
 ```
 `UIWebView` class. Read more [UIWebView Class Reference](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIWebView_Class/)
 
