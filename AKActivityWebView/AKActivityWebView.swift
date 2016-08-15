@@ -101,14 +101,14 @@ public class AKActivityWebView: UIView {
   // Overrides stored properties and translate to webView
   
   public override var backgroundColor: UIColor?  {
-    didSet(newValue) {
-      webView?.backgroundColor = newValue
+    didSet {
+      webView?.backgroundColor = backgroundColor
     }
   }
   
   public override var opaque: Bool {
-    didSet(newValue) {
-      webView?.opaque = newValue
+    didSet {
+      webView?.opaque = opaque
     }
   }
   
